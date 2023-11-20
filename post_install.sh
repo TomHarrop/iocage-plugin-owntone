@@ -32,7 +32,11 @@ gmake
 
 # install owntone
 gmake install
-install -m 755 scripts/freebsd_start.sh /usr/local/etc/rc.d/owntone
+
+# get the startup script from github
+wget -O /usr/local/etc/rc.d/owntone \
+	"https://raw.githubusercontent.com/owntone/owntone-server/${OWNTONE_VERSION}/scripts/freebsd_start.sh"
+chmod 755 /usr/local/etc/rc.d/owntone
 
 # set permissions
 chown -R owntone:owntone /usr/local/var/cache/owntone
