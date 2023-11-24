@@ -3,7 +3,7 @@
 export CLASSPATH=$CLASSPATH:/usr/local/share/java:/usr/local/share/java/classes/antlr-3.5.2-complete.jar
 export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
-export OWNTONE_VERSION="28.3"
+export OWNTONE_VERSION="28.0"
 
 # add owntone user
 pw adduser \
