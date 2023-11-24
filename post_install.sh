@@ -15,16 +15,19 @@ pw adduser \
 	-c "owntone user"
 
 # download owntone
-mkdir /owntone-build
-wget \
-	-O /owntone.tar.xz \
-	"https://github.com/owntone/owntone-server/releases/download/${OWNTONE_VERSION}/owntone-${OWNTONE_VERSION}.tar.xz"
+git clone https://github.com/owntone/owntone-server /owntone-build
 
-tar -Jxf /owntone.tar.xz \
-	-C /owntone-build \
-	--strip-components 1
+# mkdir /owntone-build
+# wget \
+# 	-O /owntone.tar.xz \
+# 	"https://github.com/owntone/owntone-server/releases/download/${OWNTONE_VERSION}/owntone-${OWNTONE_VERSION}.tar.xz"
+
+# tar -Jxf /owntone.tar.xz \
+# 	-C /owntone-build \
+# 	--strip-components 1
 
 cd /owntone-build || exit 1
+git checkout 5efe0eeb
 
 # build owntone
 autoreconf -vi
@@ -46,7 +49,7 @@ chown -R owntone:owntone /usr/local/var/cache/owntone
 # tidy up
 cd / || exit 1
 rm -r /owntone-build
-rm /owntone.tar.xz
+# rm /owntone.tar.xz
 
 # start services
 sysrc owntone_enable="YES"
