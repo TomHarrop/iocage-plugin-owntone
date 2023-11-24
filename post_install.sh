@@ -5,7 +5,7 @@
 export CLASSPATH=$CLASSPATH:/usr/local/share/java:/usr/local/share/java/classes/antlr-3.5.2-complete.jar
 export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
-export OWNTONE_VERSION="28.3"
+# export OWNTONE_VERSION="28.3"
 
 # add owntone user
 pw adduser \
@@ -27,7 +27,7 @@ git clone https://github.com/owntone/owntone-server /owntone-build
 # 	--strip-components 1
 
 cd /owntone-build || exit 1
-git checkout 5efe0eeb
+git checkout 6ee23021
 
 # build owntone
 autoreconf -vi
