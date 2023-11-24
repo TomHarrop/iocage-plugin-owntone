@@ -1,9 +1,11 @@
 #!/bin/sh
 
+# FIXME!!! change the start script back after testing is finished
+
 export CLASSPATH=$CLASSPATH:/usr/local/share/java:/usr/local/share/java/classes/antlr-3.5.2-complete.jar
 export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
-export OWNTONE_VERSION="28.1"
+export OWNTONE_VERSION="28.0"
 
 # add owntone user
 pw adduser \
@@ -35,7 +37,7 @@ gmake install
 
 # get the startup script from github
 wget -O /usr/local/etc/rc.d/owntone \
-	"https://raw.githubusercontent.com/owntone/owntone-server/${OWNTONE_VERSION}/scripts/freebsd_start.sh"
+	"https://raw.githubusercontent.com/owntone/owntone-server/28.8/scripts/freebsd_start.sh"
 chmod 755 /usr/local/etc/rc.d/owntone
 
 # set permissions
