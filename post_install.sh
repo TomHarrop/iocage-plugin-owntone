@@ -27,7 +27,7 @@ git clone https://github.com/owntone/owntone-server /owntone-build
 # 	--strip-components 1
 
 cd /owntone-build || exit 1
-git checkout 6ee23021
+git checkout 5efe0ee
 
 # build owntone
 autoreconf -vi
@@ -45,6 +45,15 @@ chmod 755 /usr/local/etc/rc.d/owntone
 
 # set permissions
 chown -R owntone:owntone /usr/local/var/cache/owntone
+
+# install mpc
+wget -O /mpc.tar.gz https://github.com/MusicPlayerDaemon/mpc/archive/refs/tags/v0.34.tar.gz
+mkdir /mpc-build
+tar -zxf /mpc.tar.gz -C /mpc-build --strip-components 1
+cd /mpc-build || exit 1
+meson . output
+ninja -C output
+ninja -C output install
 
 # tidy up
 cd / || exit 1
