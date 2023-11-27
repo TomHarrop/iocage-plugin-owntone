@@ -61,6 +61,12 @@ ninja -C output
 ninja -C output install
 )
 
+# download a test mp3
+mkdir -p /srv/music
+wget -O /srv/music/Free_Test_Data_1MB_MP3.mp3 \
+	https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1MB_MP3.mp3
+chown -R owntone:owntone /srv/music
+
 # tidy up
 cd / || exit 1
 rm -r /owntone-build
