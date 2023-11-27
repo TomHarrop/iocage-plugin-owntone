@@ -59,6 +59,8 @@ ninja -C output install
 cd / || exit 1
 rm -r /owntone-build
 # rm /owntone.tar.xz
+rm -r /mpc-build
+rm /mpc.tar.gz
 
 # start services
 sysrc owntone_enable="YES"
