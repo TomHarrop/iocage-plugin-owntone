@@ -47,6 +47,11 @@ chmod 755 /usr/local/etc/rc.d/owntone
 chown -R owntone:owntone /usr/local/var/cache/owntone
 
 # install mpc
+(
+# these are used for owntone but interfere with mpc
+unset CLASSPATH
+unset CFLAGS
+unset LDFLAGS
 wget -O /mpc.tar.gz https://github.com/MusicPlayerDaemon/mpc/archive/refs/tags/v0.34.tar.gz
 mkdir /mpc-build
 tar -zxf /mpc.tar.gz -C /mpc-build --strip-components 1
@@ -54,6 +59,7 @@ cd /mpc-build || exit 1
 meson . output
 ninja -C output
 ninja -C output install
+)
 
 # tidy up
 cd / || exit 1
