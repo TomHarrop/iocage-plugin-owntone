@@ -74,6 +74,9 @@ rm -r /owntone-build
 rm -r /mpc-build
 rm /mpc.tar.gz
 
+# enable debugging
+sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
+
 # start services
 sysrc owntone_enable="YES"
 sysrc dbus_enable="YES"
