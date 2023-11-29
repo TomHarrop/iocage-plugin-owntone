@@ -1,0 +1,55 @@
+{
+    "name": "owntone",
+    "release": "13.2-RELEASE",
+    "artifact": "https://github.com/TomHarrop/iocage-plugin-owntone",
+    "properties": {
+        "boot": 1,
+        "dhcp": 1,
+        "vnet": 1,
+        "vnet_default_interface": "auto"
+    },
+    "pkgs": [
+        "alsa-lib", 
+        "antlr3", 
+        "autoconf", 
+        "automake", 
+        "avahi",
+        "bison",
+        "curl", 
+        "ffmpeg", 
+        "gettext", 
+        "glib", 
+        "gmake", 
+        "gperf", 
+        "json-c", 
+        "libantlr3c", 
+        "libconfuse", 
+        "libevent", 
+        "libgcrypt", 
+        "libiconv", 
+        "libinotify", 
+        "libplist", 
+        "libsodium", 
+        "libtool", 
+        "libunistring", 
+        "libwebsockets", 
+        "meson",
+        "mxml", 
+        "openjdk8-jre",
+        "pkgconf",
+        "protobuf-c", 
+        "sqlite3", 
+        "wget"
+    ],
+    "packagesite": "http://pkg.FreeBSD.org/${ABI}/latest",
+    "fingerprints": {
+        "iocage-plugins": [
+            {
+                "function": "sha256",
+                "fingerprint": "b0170035af3acc5f3f3ae1859dc717101b4e6c1d0a794ad554928ca0cbb2f438"
+            }
+        ]
+    },
+    "official": false,
+    "revision": 0
+}
