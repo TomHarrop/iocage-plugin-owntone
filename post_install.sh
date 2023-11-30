@@ -15,7 +15,7 @@ pw adduser \
 	-c "owntone user"
 
 # download owntone
-git clone https://github.com/owntone/owntone-server /owntone-build
+# git clone https://github.com/owntone/owntone-server /owntone-build
 
 mkdir /owntone-build
 wget \
@@ -28,6 +28,9 @@ tar -Jxf /owntone.tar.xz \
 
 cd /owntone-build || exit 1
 # git checkout 5efe0ee
+
+# FIXME - disable the automatic connection test
+sed -i '' 's/if (!(flags & MDNS_CONNECTION_TEST))//' src/mdns_avahi.c
 
 # build owntone
 autoreconf -vi
