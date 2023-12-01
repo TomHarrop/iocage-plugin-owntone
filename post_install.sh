@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# FIXME!!! change the start script back after testing is finished
+# FIXME!!! change stuff back after testing is finished
 
-export CLASSPATH=$CLASSPATH:/usr/local/share/java:/usr/local/share/java/classes/antlr-3.5.2-complete.jar
+# export CLASSPATH=$CLASSPATH:/usr/local/share/java:/usr/local/share/java/classes/antlr-3.5.2-complete.jar
+# export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
+# export LDFLAGS="-L/usr/local/lib -L/usr/lib"
+
 export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
 export LDFLAGS="-L/usr/local/lib -L/usr/lib"
+
 export OWNTONE_VERSION="28.8"
 
 # add owntone user
@@ -52,7 +56,7 @@ chown -R owntone:owntone /usr/local/var/cache/owntone
 # install mpc
 (
 # these are used for owntone but interfere with mpc
-unset CLASSPATH
+# unset CLASSPATH
 unset CFLAGS
 unset LDFLAGS
 wget -O /mpc.tar.gz https://github.com/MusicPlayerDaemon/mpc/archive/refs/tags/v0.34.tar.gz
