@@ -82,7 +82,7 @@ rm -r /mpc-build
 rm /mpc.tar.gz
 
 # disable ipv6
-set -i '' 's/ipv6 = yes/ipv6 = no/' /usr/local/etc/owntone.conf
+sed -i '' 's/ipv6 = yes/ipv6 = no/' /usr/local/etc/owntone.conf
 
 # enable debugging
 sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
