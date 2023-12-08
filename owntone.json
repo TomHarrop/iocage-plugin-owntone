@@ -5,8 +5,7 @@
     "properties": {
         "boot": 1,
         "dhcp": 1,
-        "vnet": 1,
-        "vnet_default_interface": "auto"
+        "vnet": 1
     },
     "pkgs": [
         "alsa-lib", 
