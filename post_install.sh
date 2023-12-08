@@ -34,7 +34,7 @@ cd /owntone-build || exit 1
 # git checkout 5efe0ee
 
 # FIXME - disable the automatic connection test
-sed -i '' 's/if (!(flags & MDNS_CONNECTION_TEST))//' src/mdns_avahi.c
+# sed -i '' 's/if (!(flags & MDNS_CONNECTION_TEST))//' src/mdns_avahi.c
 
 # build owntone
 autoreconf -vi
