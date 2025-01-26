@@ -66,17 +66,19 @@ rm -r /mpc-build
 rm /mpc.tar.gz
 
 # enable debugging and download a test mp3
-# sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
-# mkdir -p /srv/music
-# wget -O /srv/music/Free_Test_Data_1MB_MP3.mp3 \
-# 	https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1MB_MP3.mp3
-# chown -R owntone:owntone /srv/music
+sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
+mkdir -p /srv/music
+wget -O /srv/music/Free_Test_Data_1MB_MP3.mp3 \
+	https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1MB_MP3.mp3
+chown -R owntone:owntone /srv/music
 
 # start services
 sysrc owntone_enable="YES"
 sysrc dbus_enable="YES"
 sysrc avahi_daemon_enable="YES"
 
+exit 0
+
 service dbus start
 service avahi-daemon start
-service owntone restart
+service owntone start
