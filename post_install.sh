@@ -1,9 +1,6 @@
 #!/bin/sh
 
-export CFLAGS="-march=native -g -I/usr/local/include -I/usr/include"
-export LDFLAGS="-L/usr/local/lib -L/usr/lib"
-
-export OWNTONE_VERSION="28.8"
+export OWNTONE_VERSION="28.11"
 
 # add owntone user
 pw adduser \
@@ -23,6 +20,8 @@ tar -Jxf /owntone.tar.xz \
 	--strip-components 1
 
 cd /owntone-build || exit 1
+
+exit 0
 
 # build owntone
 autoreconf -vi
