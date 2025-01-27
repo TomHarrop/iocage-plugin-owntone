@@ -27,7 +27,6 @@
         "libevent", 
         "libgcrypt", 
         "libiconv", 
-        "libinotify", 
         "libplist", 
         "libsodium", 
         "libtool", 
