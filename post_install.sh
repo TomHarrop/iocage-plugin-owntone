@@ -6,7 +6,7 @@ export LDFLAGS="-L/usr/local/lib -L/usr/lib"
 export INOTIFY_CFLAGS="-I/usr/local/include"
 export INOTIFY_LIBS="-L/usr/local/lib -linotify"
 
-export OWNTONE_VERSION="28.8"
+export OWNTONE_VERSION="28.11"
 
 # manually install libinotify release 20211018
 mkdir /libinotify-build
@@ -52,8 +52,8 @@ gmake
 # install owntone
 gmake install
 
-# disable ipv6
-sed -i '' 's/ipv6 = yes/ipv6 = no/' /usr/local/etc/owntone.conf
+# disable ipv6 (now default)
+# sed -i '' 's/ipv6 = yes/ipv6 = no/' /usr/local/etc/owntone.conf
 
 # get the startup script from github
 wget -O /usr/local/etc/rc.d/owntone \
@@ -97,8 +97,6 @@ chown -R owntone:owntone /srv/music
 sysrc owntone_enable="YES"
 sysrc dbus_enable="YES"
 sysrc avahi_daemon_enable="YES"
-
-exit 0
 
 service dbus start
 service avahi-daemon start
