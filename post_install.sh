@@ -2,6 +2,22 @@
 
 export OWNTONE_VERSION="28.11"
 
+# manually install libinotify release 20211018
+mkdir /libinotify-build
+wget \
+	-O /libinotify.tar.gz \
+	"https://github.com/libinotify-kqueue/libinotify-kqueue/releases/download/20211018/libinotify-20211018.tar.gz"
+
+tar -zxf /libinotify.tar.gz \
+	-C /libinotify-build \
+	--strip-components 1
+
+cd /libinotify-build || exit 1
+autoreconf -fvi
+./configure
+make 
+make install
+
 # add owntone user
 pw adduser \
 	owntone \
@@ -20,8 +36,6 @@ tar -Jxf /owntone.tar.xz \
 	--strip-components 1
 
 cd /owntone-build || exit 1
-
-exit 0
 
 # build owntone
 autoreconf -vi
@@ -59,6 +73,8 @@ ninja -C output install
 
 # tidy up
 cd / || exit 1
+rm -r /libinotify-build
+rm /libinotify.tar.gz
 rm -r /owntone-build
 rm /owntone.tar.xz
 rm -r /mpc-build
