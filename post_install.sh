@@ -1,6 +1,12 @@
 #!/bin/sh
 
-export OWNTONE_VERSION="28.11"
+export ARCH="-march=native"
+export CFLAGS="${ARCH} -g -I/usr/local/include -I/usr/include"
+export LDFLAGS="-L/usr/local/lib -L/usr/lib"
+export INOTIFY_CFLAGS="-I/usr/local/include"
+export INOTIFY_LIBS="-L/usr/local/lib -linotify"
+
+export OWNTONE_VERSION="28.8"
 
 # manually install libinotify release 20211018
 mkdir /libinotify-build
