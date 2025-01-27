@@ -87,11 +87,12 @@ rm -r /mpc-build
 rm /mpc.tar.gz
 
 # enable debugging and download a test mp3
-sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
-mkdir -p /srv/music
-wget -O /srv/music/Free_Test_Data_1MB_MP3.mp3 \
-	https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1MB_MP3.mp3
-chown -R owntone:owntone /srv/music
+# for production, mount the music directory to /srv/music
+# sed -i '' 's/loglevel = log/loglevel = debug/' /usr/local/etc/owntone.conf
+# mkdir -p /srv/music
+# wget -O /srv/music/Free_Test_Data_1MB_MP3.mp3 \
+#	 https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_1MB_MP3.mp3
+# chown -R owntone:owntone /srv/music
 
 # start services
 sysrc owntone_enable="YES"
